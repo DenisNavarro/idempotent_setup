@@ -6,7 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 main() {
     # All scripts called by `setup.bash` are optional but there are file dependencies.
     local fn
-    fn=ensure_if_first_file_exists_then_next_files_exist
+    fn=check_if_first_file_exists_then_next_files_exist
     $fn ensure_hardlinks_are_up_to_date.bash common.bash
     $fn ensure_vivaldi_is_installed.bash common.bash
     $fn ensure_vscodium_and_its_extensions_are_installed.bash common.bash
@@ -54,7 +54,7 @@ main() {
     execute_if_bash_file_exists ensure_framac_is_installed.bash
 }
 
-ensure_if_first_file_exists_then_next_files_exist() {
+check_if_first_file_exists_then_next_files_exist() {
     local first_file="$1"
     if [ -f "$first_file" ]; then
         local file
