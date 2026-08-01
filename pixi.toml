@@ -1,0 +1,44 @@
+[workspace]
+name = "code"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[feature.autoconf.dependencies]
+autoconf = "2.*"
+
+[feature.cmake.dependencies]
+cmake = "4.*"
+
+[feature.curl.dependencies]
+curl = "8.*"
+
+[feature.git.dependencies]
+git = "2.*"
+
+[feature.gmp.dependencies]
+gmp = "6.*"
+
+[feature.graphviz.dependencies]
+graphviz = "14.*"
+
+[feature.make.dependencies]
+make = "4.*"
+
+[feature.openssl.dependencies]
+openssl = "3.*"  # curl from 8.0.0 to 8.21.0 requires openssl < 4.0a0
+
+[feature.perl.dependencies]
+perl = "5.*"
+
+[feature.pkgconfig.dependencies]
+pkg-config = "0.29.*"
+
+[environments]
+autoconf-graphviz-make = { features = ["autoconf", "graphviz", "make"], solve-group = "default" }
+cmake-make = {features = ["cmake", "make"], solve-group = "default"}
+cmake-git-make-perl = {features = ["cmake", "git", "make", "perl"], solve-group = "default"}
+curl-make = {features = ["curl", "make"], solve-group = "default"}
+gmp-make-pkgconfig = {features = ["gmp", "make", "pkgconfig"], solve-group = "default"}
+make = {features = ["make"], solve-group = "default"}
+make-perl = {features = ["make", "perl"], solve-group = "default"}
+openssl-pkgconfig = {features = ["openssl", "pkgconfig"], solve-group = "default"}

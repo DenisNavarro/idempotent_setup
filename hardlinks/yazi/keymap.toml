@@ -1,0 +1,22 @@
+[mgr]
+prepend_keymap = [
+	# Hopping
+	{ on = "<C-Up>",   run = "arrow -50%", desc = "Previous file" },
+	{ on = "<C-Down>", run = "arrow 50%", desc = "Next file" },
+
+	# Navigation
+	{ on = "<A-Left>", run = "back", desc = "Back to previous directory" },
+	{ on = "<A-Right>", run = "forward", desc = "Forward to next directory" },
+
+	# Operation
+	{ on = "s", run = "search --via=fd --args='-u'", desc = "Search files by name with fd -u" },
+
+	# Goto
+	{ on = [ "g", "d" ], run = "cd ~/Documents/", desc = "Go ~/Documents/" },
+	{ on = [ "g", "i" ], run = "cd ~/Documents/git/idempotent_setup/", desc = "Go ~/Documents/git/idempotent_setup/" },
+	{ on = [ "g", "s" ], run = "cd ~/Documents/git/sync_install/", desc = "Go ~/Documents/git/sync_install/" },
+	{ on = [ "g", "x" ], run = 'shell -- ya emit cd "$(xclip -o -selection clipboard)"', desc = "Go to copied directory path" },
+
+	# Tab
+	{ on = [ "t", "f" ], run = 'shell -- gnome-terminal --tab -- fish', desc = "New terminal tab with Fish" },
+]

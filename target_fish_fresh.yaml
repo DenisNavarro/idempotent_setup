@@ -1,0 +1,3 @@
+cargo:
+  fish: cargo +1.97.1 install fish --git https://github.com/fish-shell/fish-shell --tag 4.8.1 --locked
+  fresh-editor: cargo +1.97.1 install fresh-editor --version 0.4.4 --locked

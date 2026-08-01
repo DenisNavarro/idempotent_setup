@@ -1,0 +1,9 @@
+[core]
+	editor = fresh --cmd daemon open-file . --wait
+[include]
+	path = ~/.gitalias
+[init]
+	defaultBranch = main
+[user]
+	name = Your Name
+	email = your.email@address.com

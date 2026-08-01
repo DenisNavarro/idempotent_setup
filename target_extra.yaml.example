@@ -1,0 +1,2 @@
+cargo:
+  onefetch: pixi run -e cmake-make cargo +1.97.0 install onefetch --version 2.27.1

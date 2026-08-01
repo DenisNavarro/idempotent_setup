@@ -1,0 +1,9 @@
+cargo:
+  bat: cargo +1.97.1 install bat --version 0.26.1 --locked
+  chars: cargo +1.97.1 install chars --version 0.7.0 --locked
+  du-dust: cargo +1.97.1 install du-dust --version 1.2.4 --locked
+  dysk: cargo +1.97.1 install dysk --version 3.6.1 --locked
+  fend: cargo +1.97.1 install fend --version 1.5.8 --locked
+  fselect: cargo +1.97.1 install fselect --version 0.10.2 --locked
+  ruplacer: cargo +1.97.1 install ruplacer --version 0.10.0 --locked
+  rusti-cal: cargo +1.97.1 install rusti-cal --version 1.1.0 --locked

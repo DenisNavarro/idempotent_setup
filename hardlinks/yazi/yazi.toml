@@ -1,0 +1,4 @@
+[mgr]
+linemode = "size"
+show_hidden = true
+sort_by = "natural"
