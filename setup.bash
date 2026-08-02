@@ -19,8 +19,8 @@ main() {
     $fn target_cargo_install_3.yaml common.bash sync.bash target_state.yaml pixi.toml pixi.lock
     $fn target_extra.yaml sync.bash target_state.yaml pixi.toml pixi.lock
     $fn ensure_lean_is_installed.bash common.bash
-    $fn ensure_rocq_is_installed.bash common.bash opam_utils.bash pixi.toml pixi.lock
-    $fn ensure_framac_is_installed.bash common.bash opam_utils.bash pixi.toml pixi.lock
+    $fn ensure_rocq_is_installed.bash common.bash opam_utils.bash target_state.yaml pixi.toml pixi.lock
+    $fn ensure_framac_is_installed.bash common.bash opam_utils.bash target_state.yaml pixi.toml pixi.lock
 
     # In the below script, the hardlinks are mainly dotfiles.
     execute_if_bash_file_exists ensure_hardlinks_are_up_to_date.bash
