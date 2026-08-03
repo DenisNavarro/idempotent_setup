@@ -5,8 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 main() {
     # All scripts called by `setup.bash` are optional but there are file dependencies.
-    local fn
-    fn=check_if_first_file_exists_then_next_paths_exist
+    local fn=check_if_first_file_exists_then_next_paths_exist
     $fn ensure_hardlinks_are_up_to_date.bash common.bash hardlinks
     $fn ensure_vivaldi_is_installed.bash common.bash
     $fn ensure_vscodium_and_its_extensions_are_installed.bash common.bash
@@ -75,8 +74,7 @@ execute_if_bash_file_exists() {
 }
 
 sync_if_target_exists() {
-    local current_file="$1"
-    local target_file="$2"
+    local current_file="$1" target_file="$2"
     if [ -f "$target_file" ]; then
         bash sync.bash "$current_file" "$target_file"
     fi
