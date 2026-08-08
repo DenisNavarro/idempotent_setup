@@ -19,6 +19,6 @@ pixi:
   # Yazi uses 7zip, chafa, exiftool, fd (fd-find), ffmpeg, fzf, jq, magick (imagemagick), resvg,
   #   rg (ripgrep) and xclip.
   yazi: pixi global install yazi=26.5.6
-  zed: pixi global install zed=1.13.1
+  zed: pixi global install zed=1.14.2
 uv:
   audible-cli: uv tool install audible-cli==0.3.3

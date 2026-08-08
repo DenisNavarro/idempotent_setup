@@ -3,7 +3,7 @@ set -euo pipefail
 
 RUST_VERSION=1.97.1
 RUST_TOOLCHAINS=(1.97.1)
-JAQ_VERSION=3.1.0
+JAQ_VERSION=3.1.1
 
 ensure_uv_is_available() {
     ensure_recipes_are_available

@@ -1,5 +1,5 @@
 [workspace]
-name = "code"
+name = "idempotent_setup"
 channels = ["conda-forge"]
 platforms = ["linux-64"]
 

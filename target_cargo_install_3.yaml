@@ -5,6 +5,6 @@ cargo:
   cargo-bloat: cargo +1.97.1 install cargo-bloat --version 0.12.1 --locked
   cargo-machete: cargo +1.97.1 install cargo-machete --version 0.9.2 --locked
   cargo-msrv: pixi run -e openssl-pkgconfig cargo +1.97.1 install cargo-msrv --version 0.19.3 --locked
-  dua-cli: cargo +1.97.1 install dua-cli --version 2.40.1 --locked
+  dua-cli: cargo +1.97.1 install dua-cli --version 2.41.1 --locked
   onefetch: pixi run -e cmake-make cargo +1.97.1 install onefetch --version 2.27.1
   rnr: cargo +1.97.1 install rnr --version 0.5.1 --locked
