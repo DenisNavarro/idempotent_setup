@@ -7,9 +7,16 @@ source common.bash
 
 main() {
     ensure_vscodium_is_installed
-    for ext in leanprover.lean4 maximedenes.vscoq timonwong.shellcheck tombi-toml.tombi rust-lang.rust-analyzer; do
-        if ! codium --list-extensions | grep -Fxq "$ext"; then
-            run codium --install-extension "$ext"
+    for extension in \
+        leanprover.lean4 \
+        maximedenes.vscoq \
+        modular-mojotools.vscode-mojo \
+        rust-lang.rust-analyzer \
+        timonwong.shellcheck \
+        tombi-toml.tombi
+    do
+        if ! codium --list-extensions | grep -Fxq "$extension"; then
+            run codium --install-extension "$extension"
         fi
     done
 }
