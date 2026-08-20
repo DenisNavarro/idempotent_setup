@@ -2,15 +2,28 @@
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --warn-undefined-variables
 
-.PHONY: all
+.PHONY: all # Download Git repositories
 all : \
   idempotent_setup \
   rust_pocs \
   sync_install
 
-.PHONY: pull
+#############################################
+# Other phony targets in alphabetical order #
+#############################################
+
+.PHONY: help # Print each phony target with its description
+help:
+	@grep '^.PHONY: .* # ' Makefile | sed 's/\.PHONY: \(.*\) # \(.*\)/\1\t\2/' | expand -t 5
+
+.PHONY: pull # Do `git pull` on each downloaded Git repository
 pull :
-	find . -mindepth 1 -maxdepth 1 -type d -exec env -C {} git pull \;
+	find . -mindepth 1 -maxdepth 1 -type d -exec echo + env -C {} git pull \; \
+	                                       -exec        env -C {} git pull \;
+
+#####################
+# Directory targets #
+#####################
 
 # https://github.com/DenisNavarro/idempotent_setup
 idempotent_setup :
