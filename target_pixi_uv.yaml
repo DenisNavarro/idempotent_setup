@@ -4,11 +4,11 @@ pixi:
   curl: pixi global install curl=8.21.0
   duckdb-cli: pixi global install duckdb-cli=1.5.5
   exiftool: pixi global install exiftool=13.59
-  ffmpeg: pixi global install ffmpeg=8.1.2
-  firefox: pixi global install firefox=153.0
-  fzf: pixi global install fzf=0.74.2
+  ffmpeg: pixi global install ffmpeg=9.0.1
+  firefox: pixi global install firefox=154.0
+  fzf: pixi global install fzf=0.74.3
   git: pixi global install git=2.55.0
-  imagemagick: pixi global install imagemagick=7.1.1_47
+  imagemagick: pixi global install imagemagick=7.1.2_19
   jq: pixi global install jq=1.8.2
   make: pixi global install make=4.4.1
   podman: pixi global install podman=5.2.5
@@ -18,7 +18,7 @@ pixi:
   xclip: pixi global install xclip=0.13
   # Yazi uses 7zip, chafa, exiftool, fd (fd-find), ffmpeg, fzf, jq, magick (imagemagick), resvg,
   #   rg (ripgrep) and xclip.
-  yazi: pixi global install yazi=26.5.6
-  zed: pixi global install zed=1.14.2
+  yazi: pixi global install yazi=26.8.15
+  zed: pixi global install zed=1.16.1
 uv:
   audible-cli: uv tool install audible-cli==0.3.3
