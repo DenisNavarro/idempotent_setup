@@ -1,14 +1,14 @@
 cargo:
-  cargo-expand: cargo +1.98.0 install cargo-expand --version 1.0.126
+  cargo-expand: cargo +1.99.0 install cargo-expand --version 1.0.126
   # 2026-07-15: /lib/x86_64-linux-gnu/libssl.so.3: version `OPENSSL_3.2.0' not found
   # cargo-update: pixi run -e openssl-pkgconfig cargo +1.97.0 install cargo-update --version 20.0.0 --locked
-  cargo-update: pixi run -e make-perl cargo +1.98.0 install cargo-update --version 22.1.1 --features vendored-openssl --locked
-  cocogitto: cargo +1.98.0 install cocogitto --version 7.0.0 --locked
-  eza: cargo +1.98.0 install eza --version 0.23.5 --locked
-  fd-find: pixi run -e make cargo +1.98.0 install fd-find --version 10.4.2 --locked
-  gitui: pixi run -e cmake-git-make-perl cargo +1.98.0 install gitui --version 0.28.1 --locked
-  just: cargo +1.98.0 install just --version 1.58.0 --locked
-  ripgrep: cargo +1.98.0 install ripgrep --version 15.2.0 --locked
-  tealdeer: cargo +1.98.0 install tealdeer --version 1.8.1 --locked
-  typst-cli: pixi run -e openssl-pkgconfig cargo +1.98.0 install typst-cli --version 0.15.1 --locked
-  zellij: pixi run -e make-perl cargo +1.98.0 install zellij --version 0.45.0 --locked
+  cargo-update: pixi run -e make-perl cargo +1.99.0 install cargo-update --version 22.1.1 --features vendored-openssl --locked
+  cocogitto: cargo +1.99.0 install cocogitto --version 7.0.0 --locked
+  eza: cargo +1.99.0 install eza --version 0.23.5 --locked
+  fd-find: pixi run -e make cargo +1.99.0 install fd-find --version 10.5.0 --locked
+  gitui: pixi run -e cmake-git-make-perl cargo +1.99.0 install gitui --version 0.28.1 --locked
+  just: cargo +1.99.0 install just --version 1.58.0 --locked
+  ripgrep: cargo +1.99.0 install ripgrep --version 15.2.0 --locked
+  tealdeer: cargo +1.99.0 install tealdeer --version 1.9.0 --locked
+  typst-cli: pixi run -e openssl-pkgconfig cargo +1.99.0 install typst-cli --version 0.15.1 --locked
+  zellij: pixi run -e make-perl cargo +1.99.0 install zellij --version 0.45.1 --locked

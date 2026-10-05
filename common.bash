@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-RUST_VERSION=1.98.0
-RUST_TOOLCHAINS=(1.98.0)
+RUSTUP_VERSION=1.29.1
+RUST_VERSION=1.99.0
+RUST_TOOLCHAINS=(1.99.0)
 JAQ_VERSION=3.1.1
 
 ensure_uv_is_available() {
@@ -84,7 +85,7 @@ _ensure_rust_is_installed() {
         install_apt_package_if_executable_is_missing wget
         ensure_apt_packages_are_installed ca-certificates
         # See https://github.com/rust-lang/docker-rust/blob/master/stable/bookworm/slim/Dockerfile
-        run wget https://static.rust-lang.org/rustup/archive/1.29.0/x86_64-unknown-linux-gnu/rustup-init
+        run wget "https://static.rust-lang.org/rustup/archive/${RUSTUP_VERSION}/x86_64-unknown-linux-gnu/rustup-init"
         run chmod +x rustup-init
         run ./rustup-init -y --no-modify-path --default-toolchain "$RUST_VERSION"
         run rm rustup-init
