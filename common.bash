@@ -159,8 +159,8 @@ ensure_apt_packages_are_installed() {
 
 # Not used in the published `idempotent_setup` but useful to share
 install_apt_package_if_gcc_cannot_include() {
-    local pkg="$1"
-    if ! echo "#include <$2>" | gcc -E -x c - > /dev/null 2>&1; then
+    local pkg="$1" filename="$2"
+    if ! echo "#include <$filename>" | gcc -E -x c - > /dev/null 2>&1; then
         run sudo apt-get update
         run sudo apt-get install -y --no-install-recommends "$pkg"
     fi
