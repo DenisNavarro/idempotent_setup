@@ -15,3 +15,5 @@ cargo:
   ruplacer: cargo +1.99.0 install ruplacer --version 0.10.0 --locked
   # https://github.com/arthurhenrique/rusti-cal/releases
   rusti-cal: cargo +1.99.0 install rusti-cal --version 1.1.0 --locked
+  # https://github.com/medialab/xan/blob/master/CHANGELOG.md
+  xan: cargo +1.99.0 install xan --version 0.61.0 --locked
