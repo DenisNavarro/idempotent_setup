@@ -1,14 +1,25 @@
 cargo:
+  # https://github.com/dtolnay/cargo-expand/releases
   cargo-expand: cargo +1.99.0 install cargo-expand --version 1.0.126
   # 2026-07-15: /lib/x86_64-linux-gnu/libssl.so.3: version `OPENSSL_3.2.0' not found
   # cargo-update: pixi run -e openssl-pkgconfig cargo +1.97.0 install cargo-update --version 20.0.0 --locked
+  # https://github.com/nabijaczleweli/cargo-update/releases
   cargo-update: pixi run -e make-perl cargo +1.99.0 install cargo-update --version 22.1.1 --features vendored-openssl --locked
+  # https://github.com/cocogitto/cocogitto/blob/main/CHANGELOG.md
   cocogitto: cargo +1.99.0 install cocogitto --version 7.0.0 --locked
+  # https://github.com/eza-community/eza/blob/main/CHANGELOG.md
   eza: cargo +1.99.0 install eza --version 0.23.5 --locked
+  # https://github.com/sharkdp/fd/blob/master/CHANGELOG.md
   fd-find: pixi run -e make cargo +1.99.0 install fd-find --version 10.5.0 --locked
+  # https://github.com/gitui-org/gitui/blob/master/CHANGELOG.md
   gitui: pixi run -e cmake-git-make-perl cargo +1.99.0 install gitui --version 0.28.1 --locked
+  # https://github.com/casey/just/blob/master/CHANGELOG.md
   just: cargo +1.99.0 install just --version 1.58.0 --locked
+  # https://github.com/BurntSushi/ripgrep/blob/HEAD/CHANGELOG.md
   ripgrep: cargo +1.99.0 install ripgrep --version 15.2.0 --locked
+  # https://github.com/tealdeer-rs/tealdeer/blob/main/CHANGELOG.md
   tealdeer: cargo +1.99.0 install tealdeer --version 1.9.0 --locked
+  # https://github.com/typst/typst/releases
   typst-cli: pixi run -e openssl-pkgconfig cargo +1.99.0 install typst-cli --version 0.15.1 --locked
+  # https://github.com/zellij-org/zellij/blob/main/CHANGELOG.md
   zellij: pixi run -e make-perl cargo +1.99.0 install zellij --version 0.45.1 --locked

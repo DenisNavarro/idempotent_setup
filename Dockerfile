@@ -1,7 +1,6 @@
 FROM docker.io/library/debian:bookworm-slim AS base
 WORKDIR /work
 COPY common.bash /work/
-RUN sed -i 's/sudo //g' common.bash
 
 #######################################
 # Check setup.bash without subscripts #

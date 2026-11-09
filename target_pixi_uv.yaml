@@ -1,24 +1,45 @@
 pixi:
+  # https://github.com/ip7z/7zip/releases
   "7zip": pixi global install 7zip=26.03
+  # https://github.com/hpjansson/chafa/releases
   chafa: pixi global install chafa=1.18.3
+  # https://curl.se/changes.html
   curl: pixi global install curl=8.22.0
+  # https://r.duckdb.org/news/index.html
   duckdb-cli: pixi global install duckdb-cli=1.5.6
+  # https://exiftool.org/history.html
   exiftool: pixi global install exiftool=13.59
+  # https://git.ffmpeg.org/gitweb/ffmpeg.git/blob_plain/HEAD:/Changelog
+  # https://github.com/FFmpeg/FFmpeg/blob/master/Changelog
   ffmpeg: pixi global install ffmpeg=9.0.2
+  # https://www.firefox.com/en-US/releases/
   firefox: pixi global install firefox=157.0
+  # https://github.com/junegunn/fzf/blob/master/CHANGELOG.md
   fzf: pixi global install fzf=0.74.4
+  # https://gitlab.com/git-scm/git/-/tree/HEAD/Documentation/RelNotes
   git: pixi global install git=2.56.0
+  # https://imagemagick.org/changelog/#gsc.tab=0
   imagemagick: pixi global install imagemagick=7.1.2_31
+  # https://github.com/jqlang/jq/releases
   jq: pixi global install jq=1.8.2
+  # No changelog for GNU Make
   make: pixi global install make=4.4.1
+  # https://github.com/podman-container-tools/podman/blob/main/RELEASE_NOTES.md
   podman: pixi global install podman=5.2.5
+  # https://github.com/linebender/resvg/blob/main/CHANGELOG.md
   resvg: pixi global install resvg=0.47.0
+  # https://download.samba.org/pub/rsync/NEWS
   rsync: pixi global install rsync=3.4.4
+  # https://sqlite.org/changes.html
   sqlite: pixi global install sqlite=3.53.4
+  # No changelog for xclip
   xclip: pixi global install xclip=0.13
   # Yazi uses 7zip, chafa, exiftool, fd (fd-find), ffmpeg, fzf, jq, magick (imagemagick), resvg,
   #   rg (ripgrep) and xclip.
+  # https://github.com/sxyazi/yazi/blob/main/CHANGELOG.md
   yazi: pixi global install yazi=26.9.1
+  # https://zed.dev/releases/stable
   zed: pixi global install zed=1.22.0
 uv:
+  # https://github.com/mkb79/audible-cli/releases
   audible-cli: uv tool install audible-cli==0.3.3

@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-RUSTUP_VERSION=1.29.1
-RUST_VERSION=1.99.0
-RUST_TOOLCHAINS=(1.99.0)
-JAQ_VERSION=3.1.1
+# https://blog.rust-lang.org
+RUST_VERSION=1.99.1
+RUST_TOOLCHAINS=(1.99.0 1.99.1)
+RUSTUP_VERSION=1.29.3
+RUSTUP_AMD64_URL="https://static.rust-lang.org/rustup/archive/${RUSTUP_VERSION}/x86_64-unknown-linux-gnu/rustup-init"
+# The checksum is available at "$RUSTUP_AMD64_URL.sha256". It can also be seen at:
+# https://github.com/rust-lang/docker-rust/blob/master/stable/bookworm/slim/Dockerfile
+RUSTUP_AMD64_SHA256=b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55
+JAQ_VERSION=3.1.1  # should match the version in `target_state.yaml`
 
 ensure_uv_is_available() {
     ensure_recipes_are_available
@@ -82,10 +87,9 @@ ensure_cargo_is_available() {
 
 _ensure_rust_is_installed() {
     if [ ! -f ~/.cargo/bin/cargo ]; then
-        install_apt_package_if_executable_is_missing wget
-        ensure_apt_packages_are_installed ca-certificates
-        # See https://github.com/rust-lang/docker-rust/blob/master/stable/bookworm/slim/Dockerfile
-        run wget "https://static.rust-lang.org/rustup/archive/${RUSTUP_VERSION}/x86_64-unknown-linux-gnu/rustup-init"
+        run test "$(dpkg --print-architecture)" == amd64
+        curl_https_tls_1_3 -O "$RUSTUP_AMD64_URL"
+        check_sha256 "$RUSTUP_AMD64_SHA256" rustup-init
         run chmod +x rustup-init
         run ./rustup-init -y --no-modify-path --default-toolchain "$RUST_VERSION"
         run rm rustup-init
@@ -126,6 +130,20 @@ clean_cargo_cache() {
     done
 }
 
+curl_https_tls_1_3() {
+    install_apt_package_if_executable_is_missing curl
+    ensure_apt_packages_are_installed ca-certificates
+    run curl --proto =https --tlsv1.3 -fsS "$@"
+}
+
+# Similar to `echo "$1 $2" | sha256sum --check` but also print checksums to stdout
+check_sha256() {
+    local expected_sha256="$1" file_path="$2"
+    local actual_sha256
+    actual_sha256="$(sha256sum "$file_path" | awk '{print $1}')"
+    run test "$expected_sha256" == "$actual_sha256"
+}
+
 install_apt_package_for_each_missing_executable() {
     local pkg
     for pkg in "$@"; do
@@ -136,8 +154,8 @@ install_apt_package_for_each_missing_executable() {
 install_apt_package_if_executable_is_missing() {
     local pkg="$1" exename="${2:-$1}"
     if ! command -v "$exename" >/dev/null 2>&1; then
-        run sudo apt-get update
-        run sudo apt-get install -y --no-install-recommends "$pkg"
+        run_as_root apt-get update
+        run_as_root apt-get install -y --no-install-recommends "$pkg"
     fi
 }
 
@@ -152,8 +170,8 @@ ensure_apt_packages_are_installed() {
         fi
     done
     if [ ${#packages_to_install[@]} -ne 0 ]; then
-        run sudo apt-get update
-        run sudo apt-get install -y --no-install-recommends "${packages_to_install[@]}"
+        run_as_root apt-get update
+        run_as_root apt-get install -y --no-install-recommends "${packages_to_install[@]}"
     fi
 }
 
@@ -161,8 +179,8 @@ ensure_apt_packages_are_installed() {
 install_apt_package_if_gcc_cannot_include() {
     local pkg="$1" filename="$2"
     if ! echo "#include <$filename>" | gcc -E -x c - > /dev/null 2>&1; then
-        run sudo apt-get update
-        run sudo apt-get install -y --no-install-recommends "$pkg"
+        run_as_root apt-get update
+        run_as_root apt-get install -y --no-install-recommends "$pkg"
     fi
 }
 
@@ -170,7 +188,7 @@ install_apt_package_if_gcc_cannot_include() {
 install_snap_package_if_executable_is_missing() {
     local pkg="$1" exename="${2:-$1}"
     if ! command -v "$exename" >/dev/null 2>&1; then
-        run sudo snap install "$pkg"
+        run_as_root snap install "$pkg"
     fi
 }
 
@@ -178,7 +196,7 @@ install_snap_package_if_executable_is_missing() {
 install_classic_snap_package_if_executable_is_missing() {
     local pkg="$1" exename="${2:-$1}"
     if ! command -v "$exename" >/dev/null 2>&1; then
-        run sudo snap install --classic "$pkg"
+        run_as_root snap install --classic "$pkg"
     fi
 }
 
@@ -192,6 +210,14 @@ install_classic_snap_package_if_executable_is_missing() {
 run_eval() {
     echo "+ $1"
     eval "$1"
+}
+
+run_as_root() {
+    if [[ ${EUID} -eq 0 ]]; then
+        run "$@"
+    else
+        run sudo "$@"
+    fi
 }
 
 run() {

@@ -5,11 +5,14 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 source opam_utils.bash
 
+# https://www.frama-c.com/html/changelog.html
+FRAMAC_VERSION=32.0
+
 ensure_opam_packages_are_available
 first_install=false
 command -v frama-c >/dev/null 2>&1 || first_install=true
 ensure_apt_packages_are_installed libcairo2-dev libexpat1-dev libgmp-dev libgtk-3-dev libgtksourceview-3.0-dev zlib1g-dev pkg-config
-pin_in_env_if_opam_package_is_not_pinned_to autoconf-graphviz-make frama-c 32.0
+pin_in_env_if_opam_package_is_not_pinned_to autoconf-graphviz-make frama-c "$FRAMAC_VERSION"
 if [ "$first_install" == true ]; then
     run opam exec -- why3 config detect
 fi

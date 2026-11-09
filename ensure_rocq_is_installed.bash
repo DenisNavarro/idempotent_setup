@@ -3,6 +3,8 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
+# Rocq changelog: https://rocq-prover.org/doc/master/refman/changes.html
+
 source opam_utils.bash
 fn=pin_in_env_if_opam_package_is_not_pinned_to
 

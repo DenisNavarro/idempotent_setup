@@ -5,7 +5,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 source common.bash
 
-LEAN_VERSION=4.31.0
+# https://github.com/leanprover/lean4/releases
+LEAN_VERSION=4.35.0
 
 main() {
     ensure_elan_is_available
@@ -19,14 +20,13 @@ ensure_elan_is_available() {
         fi
     fi
     ensure_elan_has_toolchain_version "$LEAN_VERSION"
+    # TODO: elan default "$LEAN_VERSION"
 }
 
 ensure_elan_is_installed() {
     if [ ! -f ~/.elan/bin/elan ]; then
-        install_apt_package_if_executable_is_missing curl
-        ensure_apt_packages_are_installed ca-certificates
         # See https://github.com/leanprover/elan
-        run curl -sSf -O https://elan.lean-lang.org/elan-init.sh
+        curl_https_tls_1_3 -O https://elan.lean-lang.org/elan-init.sh
         run chmod +x elan-init.sh
         run ./elan-init.sh -y --no-modify-path --default-toolchain "$LEAN_VERSION"
         run rm elan-init.sh
