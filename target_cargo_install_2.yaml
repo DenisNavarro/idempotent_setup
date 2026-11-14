@@ -1,19 +1,19 @@
 cargo:
   # https://github.com/sharkdp/bat/blob/master/CHANGELOG.md
-  bat: cargo +1.99.0 install bat --version 0.26.1 --locked
+  bat: cargo +1.100.0 install bat --version 0.26.1
   # https://github.com/boinkor-net/chars/blob/master/CHANGELOG.md
-  chars: cargo +1.99.0 install chars --version 0.7.0 --locked
+  chars: cargo +1.100.0 install chars --version 0.7.0
   # No changelog for du-dust
-  du-dust: cargo +1.99.0 install du-dust --version 1.2.6 --locked
+  du-dust: cargo +1.100.0 install du-dust --version 1.2.7
   # https://github.com/Canop/dysk/blob/main/CHANGELOG.md
-  dysk: cargo +1.99.0 install dysk --version 3.7.1 --locked
+  dysk: cargo +1.100.0 install dysk --version 3.8.2
   # https://github.com/printfn/fend/blob/main/CHANGELOG.md
-  fend: cargo +1.99.0 install fend --version 1.5.8 --locked
+  fend: cargo +1.100.0 install fend --version 1.5.9
   # https://github.com/jhspetersson/fselect/blob/master/CHANGELOG.md
-  fselect: cargo +1.99.0 install fselect --version 0.10.3 --locked
+  fselect: cargo +1.100.0 install fselect --version 0.10.4
   # https://codeberg.org/your-tools/ruplacer/src/branch/main/CHANGELOG.md
-  ruplacer: cargo +1.99.0 install ruplacer --version 0.10.0 --locked
+  ruplacer: cargo +1.100.0 install ruplacer --version 1.0.0
   # https://github.com/arthurhenrique/rusti-cal/releases
-  rusti-cal: cargo +1.99.0 install rusti-cal --version 1.1.0 --locked
+  rusti-cal: cargo +1.100.0 install rusti-cal --version 1.1.0
   # https://github.com/medialab/xan/blob/master/CHANGELOG.md
-  xan: cargo +1.99.0 install xan --version 0.61.0 --locked
+  xan: cargo +1.100.0 install xan --version 0.61.0

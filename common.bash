@@ -2,8 +2,8 @@
 set -euo pipefail
 
 # https://blog.rust-lang.org
-RUST_VERSION=1.99.1
-RUST_TOOLCHAINS=(1.99.0 1.99.1)
+RUST_VERSION=1.100.0
+RUST_TOOLCHAINS=(1.100.0)
 RUSTUP_VERSION=1.29.3
 RUSTUP_AMD64_URL="https://static.rust-lang.org/rustup/archive/${RUSTUP_VERSION}/x86_64-unknown-linux-gnu/rustup-init"
 # The checksum is available at "$RUSTUP_AMD64_URL.sha256". It can also be seen at:
@@ -54,7 +54,7 @@ ensure_jaq_is_available() {
     if ! command -v jaq >/dev/null 2>&1; then
         install_apt_package_if_executable_is_missing gcc
         ensure_apt_packages_are_installed libc6-dev
-        local cmd='cargo +'"$RUST_VERSION"' install jaq --version '"$JAQ_VERSION"' --locked'
+        local cmd='cargo +'"$RUST_VERSION"' install jaq --version '"$JAQ_VERSION"
         run_eval "$cmd"
         ensure_current_yaml_is_initialized current_state.yaml
         # Save the executed command in `current_state.yaml`.

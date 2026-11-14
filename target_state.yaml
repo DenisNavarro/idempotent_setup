@@ -1,8 +1,8 @@
 cargo:
   # https://github.com/01mf02/jaq/releases
-  jaq: cargo +1.99.0 install jaq --version 3.1.1 --locked
+  jaq: cargo +1.100.0 install jaq --version 3.1.2
   # https://github.com/prefix-dev/pixi/blob/main/CHANGELOG.md
-  pixi: cargo +1.99.0 install pixi --git https://github.com/prefix-dev/pixi --tag v0.81.0 --locked
+  pixi: cargo +1.100.0 install pixi --git https://github.com/prefix-dev/pixi --tag v0.84.2
 pixi:
   # 2026-05-07: With opam 2.5.0, `opam pin` fails to get `rocq-prover 9.0.0`:
   #   [ERROR] Package rocq-prover has no known version 9.0.0 in the repositories
@@ -11,4 +11,4 @@ pixi:
   # https://github.com/ocaml/opam/releases
   opam: pixi global install opam=2.1.3
   # https://github.com/astral-sh/uv/blob/main/CHANGELOG.md
-  uv: pixi global install uv=0.12.21
+  uv: pixi global install uv=0.13.7

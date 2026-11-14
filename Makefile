@@ -1,6 +1,6 @@
 
 .DELETE_ON_ERROR:
-MAKEFLAGS += --no-builtin-rules
+#MAKEFLAGS += --no-builtin-rules # commented: disallows compiling fd-find 10.5.1 and fd-find 10.5.2
 MAKEFLAGS += --warn-undefined-variables
 
 .PHONY: setup # Launch `setup.bash`

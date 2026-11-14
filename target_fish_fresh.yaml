@@ -1,5 +1,5 @@
 cargo:
   # https://github.com/fish-shell/fish-shell/blob/master/CHANGELOG.rst
-  fish: cargo +1.99.0 install fish --git https://github.com/fish-shell/fish-shell --tag 4.9.3 --locked
+  fish: cargo +1.100.0 install fish --git https://github.com/fish-shell/fish-shell --tag 4.9.3
   # https://github.com/sinelaw/fresh/blob/master/CHANGELOG.md
-  fresh-editor: cargo +1.99.0 install fresh-editor --version 0.5.2 --locked
+  fresh-editor: cargo +1.100.0 install fresh-editor --version 0.5.8
